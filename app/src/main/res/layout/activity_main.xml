@@ -56,4 +56,19 @@
         tools:layout_editor_absoluteX="96dp"
         tools:layout_editor_absoluteY="280dp" />
 
+    <Button
+        android:id="@+id/btnStartGetSecondLocation"
+        android:layout_width="220dp"
+        android:layout_height="95dp"
+        android:layout_below="@+id/getLocation"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="17dp"
+        android:background="#397bb2"
+        android:padding="10dp"
+        android:text="Add Activity"
+        android:textColor="#FFF"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="290dp" />
+
 </RelativeLayout>

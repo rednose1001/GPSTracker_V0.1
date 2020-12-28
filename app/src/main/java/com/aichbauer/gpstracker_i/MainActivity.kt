@@ -3,6 +3,7 @@ package com.aichbauer.gpstracker_i
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
@@ -27,6 +28,13 @@ class MainActivity : AppCompatActivity(), LocationListener {
         val button: Button = findViewById(R.id.getLocation)
         button.setOnClickListener {
             getLocation()
+        }
+
+        val buttonGetSecondLocation: Button = findViewById(R.id.btnStartGetSecondLocation)
+        buttonGetSecondLocation.setOnClickListener {
+            val intent = Intent(this, AddTaskActivity::class.java)
+            // start your next activity
+            startActivity(intent)
         }
     }
     private fun getLocation() {
