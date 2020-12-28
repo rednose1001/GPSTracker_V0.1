@@ -8,6 +8,63 @@
     android:verticalScrollbarPosition="defaultPosition"
     tools:context="com.aichbauer.gpstracker_i.AddTaskActivity">
 
+
+    <TextView
+        android:id="@+id/outputHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="107dp"
+        android:padding="20dp"
+        android:text="@string/outputMessage"
+        android:textColor="#3F51B5"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="105dp" />
+
+    <TextView
+        android:id="@+id/outputTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/outputHeader"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="189dp"
+        android:padding="20dp"
+        android:text=""
+        android:textColor="#3F51B5"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="165dp" />
+
+    <TextView
+        android:id="@+id/outputText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/outputTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="229dp"
+        android:padding="20dp"
+        android:text=""
+        android:textColor="#3F51B5"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="165dp" />
+
     <!--EditText with id editText-->
 
     <EditText
@@ -15,6 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_below="@id/outputText"
         android:hint="Title"
         android:inputType="text"
         tools:layout_editor_absoluteX="2dp"
@@ -32,7 +90,7 @@
         tools:layout_editor_absoluteY="190dp"/>
 
     <Button
-        android:id="@+id/btnBack"
+        android:id="@+id/btnOk"
         android:layout_below="@id/editDescription"
         android:layout_width="220dp"
         android:layout_height="95dp"
@@ -41,7 +99,7 @@
         android:layout_marginTop="17dp"
         android:background="#397bb2"
         android:padding="10dp"
-        android:text="Back"
+        android:text="OK"
         android:textColor="#FFF"
         tools:layout_editor_absoluteX="6dp"
         tools:layout_editor_absoluteY="290dp" />

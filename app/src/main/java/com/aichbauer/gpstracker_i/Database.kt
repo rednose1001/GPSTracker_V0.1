@@ -77,7 +77,7 @@ class Database(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null,
     }
 
     // Insert note into database
-    fun insertNote(note: myActivity): Long {
+    fun insertActivity(note: myActivity): Long {
         val values = noteToContentValues(note)
 
         return writableDatabase.insert(DATABASE_TABLE_NAME, null, values)

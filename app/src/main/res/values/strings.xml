@@ -3,4 +3,5 @@
     <string name="gpstracking">GPS Tracking</string>
     <string name="current_gps_location">Current GPS Location</string>
     <string name="get_location">Get location</string>
+    <string name="outputMessage">Current Input</string>
 </resources>
