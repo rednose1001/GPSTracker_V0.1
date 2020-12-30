@@ -39,8 +39,11 @@ class AddTaskActivity : AppCompatActivity() {
             outputTitle.setText(editTitle.text.toString());
             outputText.setText(editDescription.text.toString());
 
-            val latitude = 0.0;
-            val longitude = 0.0;
+            var latitude: Double? = 0.0
+            var longitude: Double? = 0.0
+
+            latitude = intent.getStringExtra("EXTRA_LATTITUDE")?.toDouble()
+            longitude = intent.getStringExtra("EXTRA_LONGITUDE")?.toDouble()
 
             //Save entry to database
             println("try to save entry to database");
