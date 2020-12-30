@@ -5,6 +5,8 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import java.util.*
+import kotlin.collections.ArrayList
 
 class Database(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -78,8 +80,9 @@ class Database(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null,
 
     // Insert note into database
     fun insertActivity(note: myActivity): Long {
-        val values = noteToContentValues(note)
-
+        var values = noteToContentValues(note)
+        println("try to insert to database:")
+        println(values)
         return writableDatabase.insert(DATABASE_TABLE_NAME, null, values)
     }
 

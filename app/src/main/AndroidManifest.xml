@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GPSTracker_I">
-        <activity android:name="com.aichbauer.gpstracker_i.AddTaskActivity"></activity>
+        <activity android:name="com.aichbauer.gpstracker_i.ListActivity"></activity>
+        <activity android:name="com.aichbauer.gpstracker_i.AddTaskActivity" />
         <activity android:name="com.aichbauer.gpstracker_i.SplashActivity" />
         <activity android:name="com.aichbauer.gpstracker_i.MainActivity">
             <intent-filter>

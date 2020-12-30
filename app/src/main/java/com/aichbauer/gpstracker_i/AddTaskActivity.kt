@@ -3,6 +3,7 @@ package com.aichbauer.gpstracker_i
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -12,7 +13,7 @@ import com.example.q11.R
 class AddTaskActivity : AppCompatActivity() {
 
     //Declare Hanlder-Variable for Database-Connection
-   // private val db = Database(this)
+   private val db = Database(this)
 
 
     //Override Functions
@@ -38,12 +39,16 @@ class AddTaskActivity : AppCompatActivity() {
             outputTitle.setText(editTitle.text.toString());
             outputText.setText(editDescription.text.toString());
 
-            //Save entry to database
-           // db.insertActivity(myActivity(0, System.currentTimeMillis(), editTitle, message, latitude, longitude))
+            val latitude = 0.0;
+            val longitude = 0.0;
 
-           //val intent = Intent(this, AddTaskActivity::class.java)
-            // start your next activity
-           //startActivity(intent)
+            //Save entry to database
+            println("try to save entry to database");
+           db.insertActivity(myActivity(0, System.currentTimeMillis(), editTitle.text.toString(), editDescription.text.toString(), latitude, longitude))
+
+            //Set intent to Show ListActivity
+           val intent = Intent(this, ListActivity::class.java)
+           startActivity(intent)
         }
     }
 
