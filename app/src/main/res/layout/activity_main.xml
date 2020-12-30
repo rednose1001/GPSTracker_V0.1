@@ -8,23 +8,7 @@
     android:verticalScrollbarPosition="defaultPosition"
     tools:context="com.aichbauer.gpstracker_i.MainActivity">
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="91dp"
-        android:padding="20dp"
-        android:text="@string/gpstracking"
-        android:textColor="#3F51B5"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.559"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="165dp" />
+
 
     <TextView
         android:id="@+id/textView"
@@ -32,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="50dp"
         android:text="@string/current_gps_location"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/purple_700"
@@ -42,33 +26,51 @@
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="420dp" />
 
+
+
     <Button
-        android:id="@+id/getLocation"
+        android:id="@+id/btnStartGetThirdLocation"
         android:layout_width="250dp"
         android:layout_height="97dp"
-        android:layout_below="@+id/text"
+        android:layout_below="@+id/btnStartGetSecondLocation"
         android:layout_centerInParent="true"
-        android:layout_marginTop="42dp"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:background="#397bb2"
         android:padding="10dp"
-        android:text="@string/get_location"
+        android:text="Distance"
+        android:textColor="#FFF"
         android:textSize="24sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="280dp" />
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="290dp" />
 
     <Button
         android:id="@+id/btnStartGetSecondLocation"
-        android:layout_width="220dp"
-        android:layout_height="95dp"
+        android:layout_width="250dp"
+        android:layout_height="97dp"
         android:layout_below="@+id/getLocation"
         android:layout_centerInParent="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="20dp"
         android:background="#397bb2"
         android:padding="10dp"
         android:text="Add Activity"
         android:textColor="#FFF"
+        android:textSize="24sp"
         tools:layout_editor_absoluteX="6dp"
         tools:layout_editor_absoluteY="290dp" />
+
+    <Button
+        android:id="@+id/getLocation"
+        android:layout_centerHorizontal="true"
+        android:layout_width="250dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="100dp"
+        android:padding="10dp"
+        android:text="Get location"
+        android:textSize="24sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="96dp"
+        tools:layout_editor_absoluteY="280dp" />
 
 </RelativeLayout>

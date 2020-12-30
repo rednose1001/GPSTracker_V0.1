@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.example.q11">
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <dist:module dist:instant="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.network"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
@@ -13,16 +26,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GPSTracker_I">
+        <activity android:name="com.aichbauer.gpstracker_i.MapActivity"></activity>
         <activity android:name="com.aichbauer.gpstracker_i.ListActivity"></activity>
-        <activity android:name="com.aichbauer.gpstracker_i.AddTaskActivity" />
-        <activity android:name="com.aichbauer.gpstracker_i.SplashActivity" />
+        <activity android:name="com.aichbauer.gpstracker_i.AddTaskActivity"></activity>
+        <activity android:name="com.aichbauer.gpstracker_i.SplashActivity"></activity>
         <activity android:name="com.aichbauer.gpstracker_i.MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+
+         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDHDbacD4s3lJcRjd4ONtHVXff-hb49e4o" />
+
     </application>
 
 </manifest>
