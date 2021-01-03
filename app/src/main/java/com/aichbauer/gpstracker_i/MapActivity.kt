@@ -42,7 +42,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 import java.util.*
 
-class MapActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener, GoogleMap.OnCameraMoveListener, GoogleMap.OnCameraMoveStartedListener, GoogleMap.OnCameraIdleListener
+class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnCameraMoveListener, GoogleMap.OnCameraMoveStartedListener, GoogleMap.OnCameraIdleListener
 {
 
     private var mMap: GoogleMap? = null
@@ -65,12 +65,13 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener, G
 
     var destination:MarkerOptions? = null
 
-    var latitude = 0.0
+    var latitude: Double = 0.0
 
-    var longitude = 0.0
+    var longitude: Double = 0.0
+
 
     override fun onMapReady(googleMap: GoogleMap?) {
-        mapView.onResume()
+        mapView?.onResume()
         mMap = googleMap
 
         askPermissionLocation()
@@ -86,14 +87,18 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener, G
             return
         }
         mMap!!.setMyLocationEnabled(true)
-//        mMap!!.setOnCameraMoveListener(this)
-//        mMap!!.setOnCameraMoveStartedListener(this)
-//        mMap!!.setOnCameraIdleListener(this)
+        //mMap!!.setOnCameraMoveListener(this)
+        //mMap!!.setOnCameraMoveStartedListener(this)
+        //mMap!!.setOnCameraIdleListener(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_map)
+        if(intent.getStringExtra("EXTRA_LATTITUDE")!=null) {
+            latitude = intent.getStringExtra("EXTRA_LATTITUDE")!!.toDouble()
+            longitude = intent.getStringExtra("EXTRA_LONGITUDE")!!.toDouble()
+        }
 
         mapView = findViewById<MapView>(R.id.map1)
 
@@ -106,16 +111,16 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener, G
             mapViewBundle = savedInstanceState.getBundle(MAP_VIEW_BUNDLE_KEY)
         }
 
-        mapView.onCreate(mapViewBundle)
-        mapView.getMapAsync(this)
+        mapView?.onCreate(mapViewBundle)
+        mapView?.getMapAsync(this)
 
         B_search.setOnClickListener {
             searchArea()
         }
 
         B_clear.setOnClickListener {
-            mapView.onCreate(mapViewBundle)
-            mapView.getMapAsync(this)
+            mapView?.onCreate(mapViewBundle)
+            mapView?.getMapAsync(this)
         }
     }
 
@@ -329,7 +334,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener, G
             outState.putBundle(MAP_VIEW_BUNDLE_KEY, mapViewBundle)
         }
 
-        mapView.onSaveInstanceState(mapViewBundle)
+        mapView?.onSaveInstanceState(mapViewBundle)
     }
 
     private fun askPermissionLocation() {
@@ -381,7 +386,8 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener, G
                 override fun onComplete(loc: Task<Location>) {
                     if (loc.isSuccessful) {
                         val currentLocation = loc.result as Location?
-                        if (currentLocation != null) {
+
+                        if (currentLocation != null && currentLocation.latitude!=null) {
                             moveCamera(
                                 LatLng(currentLocation.latitude, currentLocation.longitude),
                                 DEFAULT_ZOOM
@@ -402,12 +408,14 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener, G
     }
 
     private fun moveCamera(latLng: LatLng, zoom: Float) {
-        mMap!!.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom))
+
+        if(latLng==null||zoom==null){
+            return
+        }
+
+        this.mMap!!.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom))
     }
 
-    override fun onLocationChanged(location: Location) {
-
-    }
 
     override fun onCameraMove() {
 
@@ -421,34 +429,34 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener, G
 
     }
 
-//    override fun onLocationChanged(location: Location?) {
-//        val geocoder = Geocoder(this, Locale.getDefault())
-//        var addresses: List<Address>? = null
-//        try {
-//            addresses = geocoder.getFromLocation(location!!.latitude, location.longitude, 1)
-//        } catch (e: IOException) {
-//            e.printStackTrace()
-//        }
-//        setAddress(addresses!![0])
-//    }
-//
-//    private fun setAddress(addresses: Address) {
-//        if (addresses != null) {
-//
-//            if (addresses.getAddressLine(0) != null) {
-//                tvCurrentAddress!!.setText(addresses.getAddressLine(0))
-//            }
-//            if (addresses.getAddressLine(1) != null) {
-//                tvCurrentAddress!!.setText(
-//                    tvCurrentAddress.getText().toString() + addresses.getAddressLine(1)
-//                )
-//            }
-//        }
-//    }
-//
-//    override fun onStatusChanged(p0: String?, p1: Int, p2: Bundle?) {
-//
-//    }
+    /* fun onLocationChanged(location: Location?) {
+        val geocoder = Geocoder(this, Locale.getDefault())
+        var addresses: List<Address>? = null
+        try {
+            addresses = geocoder.getFromLocation(location!!.latitude, location.longitude, 1)
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        setAddress(addresses!![0])
+    }
+
+    private fun setAddress(addresses: Address) {
+        if (addresses != null) {
+
+            if (addresses.getAddressLine(0) != null) {
+                tvCurrentAddress!!.setText(addresses.getAddressLine(0))
+            }
+            if (addresses.getAddressLine(1) != null) {
+                tvCurrentAddress!!.setText(
+                    tvCurrentAddress.getText().toString() + addresses.getAddressLine(1)
+                )
+            }
+        }
+    }
+
+     fun onStatusChanged(p0: String?, p1: Int, p2: Bundle?) {
+        return
+    }*/
 //
 //    override fun onProviderEnabled(p0: String?) {
 //

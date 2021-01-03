@@ -37,6 +37,13 @@ class MainActivity : AppCompatActivity(), LocationListener {
             // start your next activity
             startActivity(intent)
         }
+
+        val buttonGetThirdLocation: Button = findViewById(R.id.btnStartGetThirdLocation)
+        buttonGetThirdLocation.setOnClickListener {
+            val intent = Intent(this, MapActivity::class.java)
+            // start your next activity
+            startActivity(intent)
+        }
     }
     private fun getLocation() {
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
