@@ -8,4 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Button">
+        <item name="android:layout_margin">@dimen/padding</item>
+        <item name="android:text">@string/login</item>
+        <item name="backgroundTint">@color/black</item>
+    </style>
+
+    <style name="Button.Save">
+        <item name="android:text">@string/save</item>
+    </style>
+
 </resources>

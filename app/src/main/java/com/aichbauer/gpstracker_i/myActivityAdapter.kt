@@ -26,6 +26,8 @@ class myActivityAdapter(context: Context, var notes: List<myActivity>): BaseAdap
             holder = ViewHolder()
             holder.title = view.findViewById(R.id.tvTitle) as TextView
             holder.message = view.findViewById(R.id.tvMessage) as TextView
+            holder.longitude = view.findViewById(R.id.tvLongitude) as TextView
+            holder.latitude = view.findViewById(R.id.tvLatitude) as TextView
 
             // Hang onto this holder for future recycling by using setTag() to set the tag property of the view that the holder belongs to.
             view.tag = holder
@@ -39,6 +41,8 @@ class myActivityAdapter(context: Context, var notes: List<myActivity>): BaseAdap
         // Get relevant subviews of the row view.
         val tvNoteTitle = holder.title
         val tvNoteMessage = holder.message
+        val tvLongitude = holder.longitude
+        val tvLatitude = holder.latitude
 
         // Get our note object for current position using getItem(position).
         val note = getItem(position) as myActivity
@@ -46,6 +50,8 @@ class myActivityAdapter(context: Context, var notes: List<myActivity>): BaseAdap
         // Set text on TextViews
         tvNoteTitle.text = note.title
         tvNoteMessage.text = note.message
+        tvLongitude.text = note.longitude.toString()
+        tvLatitude.text = note.latitude.toString()
 
         // Return view containing all text values for current position
         return view
@@ -66,5 +72,7 @@ class myActivityAdapter(context: Context, var notes: List<myActivity>): BaseAdap
     private class ViewHolder {
         lateinit var title: TextView
         lateinit var message: TextView
+        lateinit var longitude: TextView
+        lateinit var latitude: TextView
     }
 }

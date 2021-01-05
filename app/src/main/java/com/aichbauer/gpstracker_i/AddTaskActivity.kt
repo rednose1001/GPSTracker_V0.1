@@ -47,6 +47,8 @@ class AddTaskActivity : AppCompatActivity() {
 
             //Save entry to database
             println("try to save entry to database");
+            println(latitude)
+            println(longitude)
            db.insertActivity(myActivity(0, System.currentTimeMillis(), editTitle.text.toString(), editDescription.text.toString(), latitude, longitude))
 
             //Set intent to Show ListActivity

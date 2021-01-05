@@ -4,4 +4,8 @@
     <string name="current_gps_location">Current GPS Location</string>
     <string name="get_location">Get location</string>
     <string name="outputMessage">Current Input</string>
+    <string name="title">Edit current Activity</string>
+    <string name="login">Login</string>
+    <string name="save">Save</string>
+    <string name="message">Edit Values</string>
 </resources>

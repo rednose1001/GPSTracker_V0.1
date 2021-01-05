@@ -17,4 +17,16 @@
         android:layout_height="wrap_content"
         style="@style/NoteMessage"/>
 
+    <TextView
+        android:id="@+id/tvLongitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/NoteMessage"/>
+
+    <TextView
+        android:id="@+id/tvLatitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/NoteMessage"/>
+
 </LinearLayout>

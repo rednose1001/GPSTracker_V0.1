@@ -36,33 +36,33 @@ class ListActivity : AppCompatActivity() {
     }
 
     private fun updateView() {
-        //noteAdapter!!.notes = db.getAllActivities()
-        //noteAdapter!!.notifyDataSetChanged()
+        noteAdapter!!.notes = db.getAllActivities()
+        noteAdapter!!.notifyDataSetChanged()
     }
 
      fun onClick(v: View?) {
-       // val intent = Intent(this, NoteEditActivity::class.java)
-       // startActivity(intent)
+        val intent = Intent(this, NoteEditActivity::class.java)
+        startActivity(intent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-       // menuInflater.inflate(R.menu.menu_list, menu)
+        //menuInflater.inflate(R.menu.menu_list, menu)
 
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.add) {
-           // val intent = Intent(this, NoteEditActivity::class.java)
-           // startActivity(intent)
+            val intent = Intent(this, NoteEditActivity::class.java)
+           startActivity(intent)
         }
 
         return true
     }
 
      fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, id: Long) {
-       // val intent = Intent(this, NoteEditActivity::class.java)
-       // intent.putExtra("id", id)
-       // startActivity(intent)
+        val intent = Intent(this, NoteEditActivity::class.java)
+        intent.putExtra("id", id)
+        startActivity(intent)
     }
 }

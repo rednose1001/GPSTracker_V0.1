@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity(), LocationListener {
     private lateinit var locationManager: LocationManager
     private lateinit var tvGpsLocation: TextView
     private val locationPermissionCode = 2
+    private var myLongitude = 0.0
+    private var myLattitude = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +37,9 @@ class MainActivity : AppCompatActivity(), LocationListener {
         val buttonGetSecondLocation: Button = findViewById(R.id.btnStartGetSecondLocation)
         buttonGetSecondLocation.setOnClickListener {
             val intent = Intent(this, AddTaskActivity::class.java)
+
+            intent.putExtra("EXTRA_LONGITUDE", myLongitude.toString());
+            intent.putExtra("EXTRA_LATTITUDE", myLattitude.toString());
             // start your next activity
             startActivity(intent)
         }
@@ -57,6 +62,10 @@ class MainActivity : AppCompatActivity(), LocationListener {
     override fun onLocationChanged(location: Location) {
         tvGpsLocation = findViewById(R.id.textView)
         tvGpsLocation.text = "Latitude: " + location.latitude + " , Longitude: " + location.longitude
+
+        //Set myLongitude, myLattitude to pass these via intent.putExtra to AddTaskActivity
+        myLongitude = location.longitude.toDouble()
+        myLattitude = location.latitude.toDouble()
     }
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         if (requestCode == locationPermissionCode) {
