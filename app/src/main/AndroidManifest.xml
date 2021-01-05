@@ -30,6 +30,7 @@
         <activity android:name="com.aichbauer.gpstracker_i.ListActivity"></activity>
         <activity android:name="com.aichbauer.gpstracker_i.AddTaskActivity"></activity>
         <activity android:name="com.aichbauer.gpstracker_i.SplashActivity"></activity>
+        <activity android:name="com.aichbauer.gpstracker_i.NoteEditActivity"></activity>
         <activity android:name="com.aichbauer.gpstracker_i.MainActivity">
 
             <intent-filter>

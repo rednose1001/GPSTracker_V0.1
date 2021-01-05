@@ -10,10 +10,10 @@ import android.widget.AdapterView
 import android.widget.EditText
 import android.widget.ListView
 import com.example.q11.R
+import kotlinx.android.synthetic.main.activity_list.*
 
 
-
-class ListActivity : AppCompatActivity() {
+class ListActivity : AppCompatActivity(),View.OnClickListener, AdapterView.OnItemClickListener  {
     private var db = Database(this)
     private var noteAdapter: myActivityAdapter? = null
 
@@ -26,6 +26,7 @@ class ListActivity : AppCompatActivity() {
         val notes: List<myActivity> = db.getAllActivities()
         noteAdapter = myActivityAdapter(this, notes)
         lvNotes.adapter = noteAdapter
+        lvNotes.onItemClickListener = this
 
     }
 
@@ -40,7 +41,8 @@ class ListActivity : AppCompatActivity() {
         noteAdapter!!.notifyDataSetChanged()
     }
 
-     fun onClick(v: View?) {
+    override fun onClick(v: View?) {
+        println("in der onClick Function in ListActivity.kt");
         val intent = Intent(this, NoteEditActivity::class.java)
         startActivity(intent)
     }
@@ -60,7 +62,7 @@ class ListActivity : AppCompatActivity() {
         return true
     }
 
-     fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, id: Long) {
+     override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, id: Long) {
         val intent = Intent(this, NoteEditActivity::class.java)
         intent.putExtra("id", id)
         startActivity(intent)

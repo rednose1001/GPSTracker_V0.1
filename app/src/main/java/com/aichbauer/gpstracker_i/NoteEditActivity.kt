@@ -3,6 +3,7 @@ package com.aichbauer.gpstracker_i
 import android.Manifest
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.Location
@@ -152,7 +153,9 @@ class NoteEditActivity : AppCompatActivity(), View.OnClickListener, DialogInterf
 
 
     override fun onClick(v: View?) {
-        saveNote()
+        val intent = Intent(this, MainActivity::class.java)
+        // start your next activity
+        startActivity(intent)
     }
 
     override fun onClick(p0: DialogInterface?, p1: Int) {

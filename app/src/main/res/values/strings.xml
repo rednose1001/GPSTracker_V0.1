@@ -6,6 +6,6 @@
     <string name="outputMessage">Current Input</string>
     <string name="title">Edit current Activity</string>
     <string name="login">Login</string>
-    <string name="save">Save</string>
+    <string name="main">Back to Start</string>
     <string name="message">Edit Values</string>
 </resources>

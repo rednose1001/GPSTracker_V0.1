@@ -15,7 +15,7 @@
     </style>
 
     <style name="Button.Save">
-        <item name="android:text">@string/save</item>
+        <item name="android:text">@string/main</item>
     </style>
 
 </resources>
