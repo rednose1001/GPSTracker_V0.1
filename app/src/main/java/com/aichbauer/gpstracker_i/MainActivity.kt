@@ -17,6 +17,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.q11.R
 
+
 class MainActivity : AppCompatActivity(), LocationListener {
     private lateinit var locationManager: LocationManager
     private lateinit var tvGpsLocation: TextView
@@ -67,4 +68,12 @@ class MainActivity : AppCompatActivity(), LocationListener {
             }
         }
     }
+
+
+    override fun onProviderEnabled(provider: String) {}
+
+    override fun onProviderDisabled(provider: String) {}
+
+    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {}
+
 }
