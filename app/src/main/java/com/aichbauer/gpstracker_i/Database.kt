@@ -9,7 +9,17 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class Database(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
-
+    /**
+     * Updated Database Class for Use in GPSTracker
+     * Replace getAllNotes -> getAllActivities
+     * Replace insertNote -> insertActivity
+     * Replace cursorToNote -> cursorToActivity
+     *
+     * Edited Parameters for myctivity-Handling:
+     * noteToContentValues (note: Note) -> noteToContentValues (note: myActivity)
+     * deleteNote(note: Note) -> deleteNote(note: myActivity)
+     *
+     */
     companion object {
 
         // Database properties
@@ -61,7 +71,7 @@ class Database(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null,
         db.execSQL(CREATE_TABLE)
     }
 
-    // Get all notes from database
+    // Get all Activities from database
    fun getAllActivities(): List<myActivity> {
         val notes = ArrayList<myActivity>()
         val cursor = readableDatabase.rawQuery(SELECT_ALL, null)
@@ -78,7 +88,7 @@ class Database(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null,
         return notes
     }
 
-    // Insert note into database
+    // Insert Activity into database
     fun insertActivity(note: myActivity): Long {
         var values = noteToContentValues(note)
         println("try to insert to database:")

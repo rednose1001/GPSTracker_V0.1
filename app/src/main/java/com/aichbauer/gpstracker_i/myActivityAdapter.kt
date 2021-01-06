@@ -19,7 +19,7 @@ class myActivityAdapter(context: Context, var notes: List<myActivity>): BaseAdap
         // Check if the view already exists. If it does, there’s no need to inflate from the layout and call findViewById() again.
         if (convertView == null) {
 
-            // If the view doesn’t exi st, you inflate the custom row layout from your XML.
+            // If the view doesn’t exist, you inflate the custom row layout from your XML.
             view = inflater.inflate(R.layout.list_item, parent, false)
 
             // Create a new ViewHolder with subviews initialized by using findViewById().

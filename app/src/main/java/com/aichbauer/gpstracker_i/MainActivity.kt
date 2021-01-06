@@ -19,6 +19,8 @@ import com.example.q11.R
 
 
 class MainActivity : AppCompatActivity(), LocationListener {
+
+    //Initializing Helper-Variables for locationMagaser Usage and Output
     private lateinit var locationManager: LocationManager
     private lateinit var tvGpsLocation: TextView
     private val locationPermissionCode = 2
@@ -37,7 +39,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
         val buttonGetSecondLocation: Button = findViewById(R.id.btnStartGetSecondLocation)
         buttonGetSecondLocation.setOnClickListener {
             val intent = Intent(this, AddTaskActivity::class.java)
-
+            //Add Longitude and Latitude to intent-Variables for Handling in next view: AddTaskActivity
             intent.putExtra("EXTRA_LONGITUDE", myLongitude.toString());
             intent.putExtra("EXTRA_LATTITUDE", myLattitude.toString());
             // start your next activity

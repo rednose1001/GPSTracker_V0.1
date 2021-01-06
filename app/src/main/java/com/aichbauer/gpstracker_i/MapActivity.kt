@@ -412,8 +412,11 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnCameraM
         if(latLng==null||zoom==null){
             return
         }
-
-        this.mMap!!.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom))
+            try {
+                    this.mMap!!.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom))
+            }catch(e: java.lang.Exception){
+                return
+            }
     }
 
 

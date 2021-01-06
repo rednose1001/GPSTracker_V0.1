@@ -14,6 +14,8 @@ import kotlinx.android.synthetic.main.activity_list.*
 
 
 class ListActivity : AppCompatActivity(),View.OnClickListener, AdapterView.OnItemClickListener  {
+
+    //Initialize HelperVariables for local Database and noteAdapter Usage
     private var db = Database(this)
     private var noteAdapter: myActivityAdapter? = null
 
