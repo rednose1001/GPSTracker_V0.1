@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GPSTracker_I</string>
+    <string name="app_name">GPSTracker - V.0.1</string>
     <string name="gpstracking">GPS Tracking</string>
     <string name="current_gps_location">Current GPS Location</string>
     <string name="get_location">Get location</string>
